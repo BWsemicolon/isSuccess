@@ -1,0 +1,89 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script language="javascript">
+            var list = [];
+            function check()
+            {
+                if(list.length==0)
+                {
+                    alert("아직 결과가 나오지 않았습니다");
+                }
+                else
+                {
+                var num = document.getElementById("num").value;
+                var name = document.getElementById("name").value;
+                var numHap = 0;
+                var nameHap = 0;
+                var b = 0;
+                var c = 0;
+                if(num.split("").length==5)
+                {
+                    if(name!="")
+                    {
+                        for(var i=0;i<list.length;i++)
+                        {
+                            if(num==list[i][0])
+                            {
+                                numHap=1;
+                            }
+                            else
+                            {
+                                numHap=0;
+                            }
+                            if(name==list[i][1])
+                            {
+                                nameHap=1;
+                            }
+                            else
+                            {
+                                nameHap = 0;
+                            }
+                            var a=nameHap+numHap;
+                            b+=a;
+                            if(a==2)
+                            {
+                                alert("합격 하셨습니다!");
+                                c=1;
+                                break;
+                            }
+                        }
+                        if(c==0)
+                        {
+                            if(b>0)
+                            {
+                                alert("학번이나 이름을 확인해주세요");
+                            }
+                            else
+                            {
+                                alert("불합격 하셨습니다");
+                            }
+                        }
+                    }
+                    else
+                    {
+                        alert("이름을 입력해주세요");
+                    }
+                }
+                else
+                {
+                    alert("학번을 확인해주세요");
+                }
+            }
+            }
+        </script>
+    </head>
+    <body bgcolor="#4b4b4b">
+        <center>
+            <form>
+                <img src="semicolon.png"style="max-width: 40%; height: auto;">
+                <p></p>
+                <input type="text" name="num" id="num" placeholder="학번" />
+                <p></p>
+                <input type="text" name="name" id="name" placeholder="이름"/>
+                <p></p>
+                <input type="button" value="확인하기" onclick="check()">
+            </form>
+        </center>
+    </body>
+</html>
